@@ -1,0 +1,21 @@
+.header--main {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 5%;
+    height: 100px;
+    background-color: rgba(255, 0, 0, 0.432);
+}
+
+.header--nav {
+    background-color: rgba(0, 128, 0, 0.478);
+    padding: 20px;
+    border-radius: 100%;
+}
+
+.header--nav-link {
+    text-decoration: none;
+    list-style: none;
+    text-align: center;
+}
