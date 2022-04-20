@@ -7,6 +7,13 @@
     height: 100px;
     background-color: #f7ebeb6e;
     box-shadow: 0 0 10px grey;
+
+    @media (max-width:400px) {
+        flex-direction: column;
+        height: 150px;
+        padding-bottom: 10px;
+        justify-content: center;
+    }
 }
 
 .header--nav {
@@ -18,10 +25,28 @@
     border-radius: 2px;
     box-shadow: 1px 3px 5px #b6b5b5, 1px 1px 3px inset white;
 
+    @media (max-width:580px) {
+        width: 100px;
+    }
+
+    @media (max-width:400px) {
+        width: 90%;
+    }
+
     ul{
         display: flex;
         flex-direction: row;
         gap: 25px;
+
+        @media (max-width:580px) {
+            flex-direction: column;
+            gap: 0px;
+        }
+
+        @media (max-width:400px) {
+            flex-direction: row;
+            gap: 5px;
+        }
     }
 }
 
