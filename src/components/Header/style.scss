@@ -5,17 +5,45 @@
     align-items: center;
     padding: 1% 5%;
     height: 100px;
-    background-color: rgba(255, 0, 0, 0.432);
+    background-color: #f7ebeb6e;
+    box-shadow: 0 0 10px grey;
 }
 
 .header--nav {
-    background-color: rgba(0, 128, 0, 0.478);
-    padding: 20px;
-    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #f7ebeb6e;
+    padding: 10px;
+    width: 250px;
+    border-radius: 2px;
+    box-shadow: 1px 3px 5px #b6b5b5, 1px 1px 3px inset white;
+
+    ul{
+        display: flex;
+        flex-direction: row;
+        gap: 25px;
+    }
 }
 
 .header--nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
     list-style: none;
     text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover{
+        font-weight: bolder;
+    }
+
+}
+
+.header--title{
+    font-weight: bolder;
+    font-size: 30px;
+    text-transform: uppercase;
+    text-shadow: -2px 2px 5px grey;
 }

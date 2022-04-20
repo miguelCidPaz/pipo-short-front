@@ -1,6 +1,7 @@
 import { title_app, links_nav } from '../../assets/resources';
+import ButtonTurnLight from './InternalComponents/ButtonTurnLight'
 
-const Header = () => {
+const Header = (props) => {
 
     return (
         <header className="header--main">
@@ -8,12 +9,15 @@ const Header = () => {
                 <h1 className="header--title">{title_app}</h1>
             </div>
 
+            <ButtonTurnLight turnLight={props.turnLight} theme={props.theme}/>
+
             <nav className="header--nav">
                 <ul>
-                    {links_nav.map(e => {
+                    {links_nav.map((element, key) => {
                         return (
-                            <li className="header--nav-link">
-                                <p>{e}</p>
+                            <li key={key} className="header--nav-link">
+                                <div className='header--grate'></div>
+                                <p className='header--link'>{element}</p>
                             </li>
                         )
                     })}
