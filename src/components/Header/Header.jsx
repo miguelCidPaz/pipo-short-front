@@ -1,15 +1,15 @@
 import { title_app, links_nav } from '../../assets/resources';
 import ButtonTurnLight from './InternalComponents/ButtonTurnLight'
+import pipoClown from '../../assets/images/pepeclownPensando.png'
 
 const Header = (props) => {
 
     return (
         <header className="header--main">
-            <div>
+            <div className='header--title-container'>
+                <img src={pipoClown} alt="Pepe Clown" className='header--pipo-image'/>
                 <h1 className="header--title">{title_app}</h1>
             </div>
-
-            <ButtonTurnLight turnLight={props.turnLight} theme={props.theme}/>
 
             <nav className="header--nav">
                 <ul>

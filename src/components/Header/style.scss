@@ -70,6 +70,19 @@
 .header--title{
     font-weight: bolder;
     font-size: 20px;
+    margin: 0px;
     text-transform: uppercase;
     text-shadow: -2px 2px 5px grey;
+}
+
+.header--title-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.header--pipo-image{
+    width: 50px;
+    margin: 0px;
 }

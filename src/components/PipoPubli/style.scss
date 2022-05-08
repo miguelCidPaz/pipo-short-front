@@ -1,0 +1,74 @@
+.pipopubli--main{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin: auto;
+    margin-top: 10px;
+    gap: 20%;
+    width: 80%;
+    max-width: 500px;
+    height: 200px;
+    padding-top: 20px;
+    
+    @media (max-width:355px) {
+        gap: 20px;
+    }
+}
+
+.pipopubli--image{
+    width: 200px;
+    animation: 0.5s popLeft forwards;
+    
+    @media (max-width:355px) {
+        width: 150px;
+    }
+}
+
+.pipopubli--features{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    width: 100px;
+    height: 200px;
+
+}
+
+.pipopubli--feature{
+    font-size: 20px;
+    text-align: end;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+.pipopubli--feature-2{
+ animation: 1.0s popLeft forwards;
+ margin-right: -20px;
+}
+
+.pipopubli--feature-1{
+    animation: 1.1s popLeft forwards;
+}
+
+.pipopubli--feature-3{
+    animation: 1.2s popLeft forwards;
+}
+
+@keyframes popLeft {
+    0%, 70%{
+        transform: translateX(-1500px);
+    }
+
+    90%{
+        transform: translateX(40px);
+    }
+
+    95%{
+        transform: translateX(-20px);
+    }
+
+    100%{
+        transform: translateX(0px);
+    }
+    
+}
