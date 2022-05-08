@@ -14,12 +14,12 @@
     margin-top: 150px;
     margin-bottom: 50px;
     padding-top: 10px;
-    box-shadow: 0 10px 10px grey, -2px 2px 10px inset greenyellow;
+    box-shadow: 0 10px 10px $dark-secondary-color, -2px 2px 10px inset $light-principal-color;
     color: white;
 }
 
 .banner--card-body{
-    box-shadow: 3px 2px 10px inset #024602, 2px 2px 10px inset #024602, -3px -2px 10px #81c917;
+    box-shadow: 3px 2px 10px inset $dark-principal-color, 2px 2px 10px inset $dark-principal-color, -3px -2px 10px $light-principal-color;
     border-radius: 20px;
     padding: 10px;
     gap: 1px;

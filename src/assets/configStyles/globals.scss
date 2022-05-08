@@ -6,28 +6,14 @@
     transition-duration: 0.1s;
     $special-color: #ec0a0a;
     $special-color-text: #e2d4d4;
+    
 }
 
-.dark {
-    $background-color: #1f1f1f;
-    $background-color-deg: #3e3d3d;
-    $primary-color: #e2d4d4;
-    $primary-color-deg: #b3acac;
-    $secondary-color: #6600ff;
-    $secondary-color-deg: #945ee6;
-    $font-size-small: 12px;
-    $font-size-medium: 20px;
-    $font-size-large: 25px;
-}
-
-.light {
-    $background-color: #e4dede;
-    $background-color-deg: #b0acac;
-    $primary-color: #212121;
-    $primary-color-deg: #5a5858;
-    $secondary-color: #0059ff;
-    $secondary-color-deg: #5e6cee;
-    $font-size-small: 12px;
-    $font-size-medium: 20px;
-    $font-size-large: 25px;
-}
+$principal-color: green;
+$dark-principal-color: #024602;
+$light-principal-color: #81c917;
+$secondary-color:#2356f0;
+$dark-secondary-color:#0933b1;
+$light-secondary-color:#7f9cf3;
+$text-color: white;
+$text-color-deg:#ccc;

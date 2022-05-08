@@ -5,8 +5,8 @@
     align-items: center;
     padding: 0% 5%;
     height: 60px;
-    background-color: #f7ebeb6e;
-    box-shadow: 0 0 10px grey;
+    background-color: $principal-color;
+    box-shadow:0 -1px 10px inset $light-principal-color;
     z-index: 5;
 
     @media (max-width:400px) {
@@ -20,11 +20,11 @@
 .header--nav {
     display: flex;
     justify-content: center;
-    background-color: #f7ebeb6e;
+    background-color: transparent;
     padding: 10px;
     width: 250px;
-    border-radius: 2px;
-    box-shadow: 1px 3px 5px #b6b5b5, 1px 1px 3px inset white;
+    border-radius: 10px;
+    box-shadow: 1px 3px 10px $dark-principal-color, 1px 1px 7px inset $light-principal-color;
 
     @media (max-width:580px) {
         width: 100px;
@@ -60,19 +60,21 @@
     text-align: center;
     text-transform: uppercase;
     cursor: pointer;
+    color: $text-color;
 
     &:hover{
+        text-shadow: 0 0 10px $text-color-deg;
         font-weight: bolder;
     }
-
 }
 
 .header--title{
     font-weight: bolder;
     font-size: 20px;
     margin: 0px;
+    color: $text-color;
     text-transform: uppercase;
-    text-shadow: -2px 2px 5px grey;
+    text-shadow: -2px 2px 5px $text-color-deg;
 }
 
 .header--title-container{

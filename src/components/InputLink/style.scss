@@ -17,6 +17,9 @@
     font-size: 25px;
     font-weight: bolder;
     padding-bottom: 5px;
+    color: $text-color;
+    text-shadow: 0 0 10px $text-color-deg;
+    text-transform: uppercase;
 }
 
 .inputlink--input{

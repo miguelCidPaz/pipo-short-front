@@ -39,6 +39,8 @@
     text-align: end;
     font-weight: bolder;
     font-style: italic;
+    color: $text-color;
+    text-shadow: 0 0 5px $text-color-deg;
 }
 
 .pipopubli--feature-2{
