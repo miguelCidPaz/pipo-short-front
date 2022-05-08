@@ -1,0 +1,80 @@
+#features--main{
+    width: 100%;
+}
+
+.banner--main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: green;
+    width: 100%;
+    min-height: 250px;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    padding-top: 10px;
+    box-shadow: 0 10px 10px grey, -2px 2px 10px inset greenyellow;
+    color: white;
+}
+
+.banner--card-body{
+    box-shadow: 3px 2px 10px inset #024602, 2px 2px 10px inset #024602, -3px -2px 10px #81c917;
+    border-radius: 20px;
+    padding: 10px;
+    gap: 1px;
+    min-width: 150px;
+    max-width: 200px;
+    min-height: 150px;
+    text-align: center;
+}
+
+.banner--card-image{
+    color: black;
+    margin: auto;
+    width: 90%;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px inset greenyellow, 2px 2px 10px #024602;
+    margin-bottom: 10px;
+}
+
+.banner--card-title{
+    text-shadow: 0 0 4px white;
+    margin-bottom: 5px;
+}
+
+.banner--card-1{
+    animation: 0.5s popLeft forwards;
+}
+
+.banner--card-2{
+    animation: 0.6s popLeft forwards;
+}
+
+.banner--card-3{
+    animation: 0.7s popLeft forwards;
+}
+
+.banner--card-4{
+    animation: 0.8s popLeft forwards;
+}
+
+
+@keyframes popLeft {
+    0%, 70%{
+        transform: translateX(-1500px);
+    }
+
+    90%{
+        transform: translateX(40px);
+    }
+
+    95%{
+        transform: translateX(-20px);
+    }
+
+    100%{
+        transform: translateX(0px);
+    }
+    
+}
