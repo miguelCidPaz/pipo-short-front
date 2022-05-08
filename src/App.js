@@ -1,5 +1,5 @@
 import Header from "./components/Header/Header";
-import LandPage from "./views/LandPage"
+import LandPage from './components/LandPage/LandPage'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';

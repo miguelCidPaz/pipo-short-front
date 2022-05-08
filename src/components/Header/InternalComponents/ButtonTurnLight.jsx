@@ -7,11 +7,11 @@ const ButtonTurnLight = (props) => {
     return(
         <Button className='header--button-light' onClick={e => props.turnLight(props.theme)}
         style={{
+            fontSize:"10px",
             borderRadius:"100%",
-            padding:"20px",
+            width:"10px",
             backgroundColor:"transparent",
             color: props.theme === "light" ? "grey" : "blue",
-            boxShadow:"1px 1px 5px #b6b5b5, 1px 1px 3px inset white"
         }}>
             {props.theme === "light" 
             ? <LightbulbIcon /> 

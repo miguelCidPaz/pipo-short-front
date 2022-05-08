@@ -1,4 +1,4 @@
-const InputLinks = () => {
+const InputLink = () => {
 
     return(
         <div className="container-text-central">
@@ -7,3 +7,5 @@ const InputLinks = () => {
         </div>
     )
 }
+
+export default InputLink
