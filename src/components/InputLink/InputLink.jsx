@@ -1,9 +1,9 @@
 const InputLink = () => {
 
     return(
-        <div className="container-text-central">
-            <label className="label-text-central">TEXTO</label>
-            <input type="text" className="input-text-central"/>
+        <div className="inputlink--main">
+            <label className="inputlink--label">TEXTO</label>
+            <input type="text" className="inputlink--input" placeholder="input your link"/>
         </div>
     )
 }
