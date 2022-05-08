@@ -8,7 +8,7 @@ const ButtonTurnLight = (props) => {
         <Button className='header--button-light' onClick={e => props.turnLight(props.theme)}
         style={{
             borderRadius:"100%",
-            padding:"2vh",
+            padding:"20px",
             backgroundColor:"transparent",
             color: props.theme === "light" ? "grey" : "blue",
             boxShadow:"1px 1px 5px #b6b5b5, 1px 1px 3px inset white"
