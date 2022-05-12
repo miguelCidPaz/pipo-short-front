@@ -68,6 +68,11 @@
     }
 }
 
+.header--link{
+    color: $text-color;
+    text-decoration: none;
+}
+
 .header--title{
     font-weight: bolder;
     font-size: 20px;
@@ -75,6 +80,12 @@
     color: $text-color;
     text-transform: uppercase;
     text-shadow: -2px 2px 5px $text-color-deg;
+    text-decoration: none;
+
+    &:hover{
+        text-shadow: 0 0 10px $text-color-deg;
+        font-weight: bolder;
+    }
 }
 
 .header--title-container{

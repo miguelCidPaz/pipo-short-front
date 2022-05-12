@@ -2,25 +2,17 @@ import Header from "./components/Header/Header";
 import LandPage from './components/LandPage/LandPage'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
+import UserPanel from "./components/UserPanel/UserPanel";
 
 function App() {
-  const [theme, setTheme] = useState('dark');
-
-  const turnLight = (theme) => {
-    if (theme === 'dark') {
-      setTheme('light')
-    } else {
-      setTheme('dark')
-    }
-  }
 
   return (
     <main className="App">
-      <Header theme={theme} setTheme={setTheme} turnLight={turnLight}/>
       <BrowserRouter>
+        <Header />
         <Routes>
-          <Route path="/" element={<LandPage theme={theme} />} />
+          <Route path="/" element={<LandPage/>} />
+          <Route path="/user-panel" element={<UserPanel />} />
         </Routes>
       </BrowserRouter>
     </main>
