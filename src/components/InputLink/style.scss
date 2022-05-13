@@ -35,3 +35,20 @@
         font-style: italic;
     }
 }
+
+.inputlink--button{
+    outline: none;
+    border: none;
+    font-weight: bolder;
+    background-color: $principal-color;
+    color: $text-color;
+    box-shadow: 0 5px 5px inset $light-principal-color, 0 5px 5px $dark-principal-color;
+    margin-top: 5px;
+    border-radius: 20px;
+    width: 80%;
+    height: 30px;
+
+    &:active{
+        box-shadow: 0 5px 10px inset $light-principal-color, 0 0px 5px $dark-principal-color;
+    }
+}
