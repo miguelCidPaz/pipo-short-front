@@ -1,30 +1,33 @@
+import { useEffect } from "react";
+import axios from 'axios'
+import {useParams} from 'react-router-dom'
+
 const RedirectPage = () => {
+    const navigate = useParams();
+    let i = 0
     const hoy = new Date();
     const thisDate = `${hoy.getDate()}-${hoy.getMonth()+1}-${hoy.getFullYear()}--${hoy.getHours()}:${hoy.getMinutes()}`
-    const getPais = () => {
-        let pais = ''
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition((position) => {
-                pais = position
-            })
+
+    console.log(navigate.code)
+
+    const callToApi = async() => {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}url/geturl`,
+        { data: {code:navigate.code, language: navigator.language, date:thisDate, platform:navigator.userAgentData.platform, lastUrl:document.referrer || 0}})
+        const url = response.data
+        console.log(window.location.href)
+        if(url.includes('http://www.')){
+            window.location.href = url
+        }else{
+            window.location.href = `http://www.${url}`
         }
-        return pais
     }
-
-    //El idioma que usa el usuario
-    console.log(navigator.language)
-    //Fecha, hora y minuto del click
-    console.log(thisDate)
-    //SO del user
-    console.log(navigator.userAgentData.platform)
-    //De donde viene el user (Solo reaccionara con clicks)
-    console.log(document.referrer)
-
-    console.log(getPais())
-
-
-  
-    console.log(navigator)
+    
+    useEffect(() => {
+        if(i === 0){
+            callToApi();
+            i++;
+        }
+    },[])
 
     return (
         <section>
