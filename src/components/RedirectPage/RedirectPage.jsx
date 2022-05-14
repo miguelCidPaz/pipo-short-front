@@ -12,7 +12,7 @@ const RedirectPage = () => {
 
     const callToApi = async() => {
         const response = await axios.post(`${process.env.REACT_APP_API_URL}url/geturl`,
-        { data: {code:navigate.code, language: navigator.language, date:thisDate, platform:navigator.userAgentData.platform, lastUrl:document.referrer || 0}})
+        { data: {code:navigate.code, language: navigator.language, date:thisDate, platform:navigator.userAgentData.platform, lastUrl:document.referrer || ''}})
         const url = response.data
         console.log(window.location.href)
         if(url.includes('http://www.')){
