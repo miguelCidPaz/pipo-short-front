@@ -1,13 +1,25 @@
 import { title_app, links_nav } from '../../assets/resources';
 import pipoClown from '../../assets/images/pepeclownPensando.png'
 import { Link } from 'react-router-dom';
-import { useContext, } from 'react';
+import { useContext, useEffect } from 'react';
 import { UserContext } from '../ProviderLogin/ProviderLogin'
+import { searchInLocalStorage } from './tools';
 
-const Header = (props) => {
-    const { username } = useContext(UserContext)
+const Header = () => {
+    let i = 0
+    const { username, connectSession } = useContext(UserContext)
 
-    console.log(username)
+    useEffect(() => {
+        if(localStorage.length > 0 && i === 0){
+            i++
+            tryRecover()
+        }
+    },[])
+
+    const tryRecover = async() => {
+        const localStorage = await searchInLocalStorage();
+        connectSession(localStorage.username)
+    }
 
     return (
         <header className="header--main">
@@ -22,7 +34,7 @@ const Header = (props) => {
                         return (
                             <li key={key} className="header--nav-link">
                                 {element === "register" ?
-                                    username !== undefined ? <p className='header--link'>{username}</p> :
+                                    username !== undefined ? <Link className='header--link' to={'/user-panel'}>{username}</Link> :
                                         <Link className='header--link' to={"/forms/register"}>{element}</Link> :
                                     <Link className='header--link' to={"/"}>{element}</Link>}
                             </li>

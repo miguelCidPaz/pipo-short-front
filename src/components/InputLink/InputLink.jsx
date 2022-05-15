@@ -1,7 +1,9 @@
-import { useRef, useState } from "react"
+import { useRef, useState, useContext } from "react"
+import { UserContext } from "../ProviderLogin/ProviderLogin";
 import axios from "axios"
 
 const InputLink = () => {
+    const {username} = useContext(UserContext)
     const [url, setUrl] = useState('');
     const textInput = useRef();
 
@@ -12,7 +14,7 @@ const InputLink = () => {
 
     const encryptUrl = async(myUrl) => {
         const response = await axios.post(`${process.env.REACT_APP_API_URL}url/shorturl`,
-        { data: {url:myUrl, user:'anon'}})
+        { data: {url:myUrl, user: username !== undefined ? username : 'anon'}})
 
         setUrl(response.data)
 

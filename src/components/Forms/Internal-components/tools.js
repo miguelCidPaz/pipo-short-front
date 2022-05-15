@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios, { Axios } from "axios"
 
 export const validation = (str) => {
     const validate = /^[A-Za-z0-9]+$/g
@@ -8,8 +8,13 @@ export const validation = (str) => {
     return false
 }
 
-export const registerUser = async(user, pass) => {
-    const response = await axios.post(`${process.env.REACT_APP_API_URL}user/register`,
-    { data: {user:user, pass:pass}})
-    console.log(response.data)
+export const controllerUser = async(user, pass, type) => {
+    try{
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}user/${type}`,
+        { data: {user:user, pass:pass}})
+        return response.data
+    }catch(e){
+        return 'error'
+    }
 }
+

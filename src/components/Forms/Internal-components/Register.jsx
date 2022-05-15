@@ -1,5 +1,6 @@
-import { useState } from "react";
-import {registerUser, validation} from './tools'
+import { useState, useContext } from "react";
+import { UserContext } from "../../ProviderLogin/ProviderLogin";
+import {controllerUser, validation} from './tools'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
@@ -10,6 +11,7 @@ const Register = () => {
     const [validateUser, setValidateUser] = useState(false)
     const [validatePass, setValidatePass] = useState(false)
     const [validateRetypePass, setValidateRetypePass] = useState(false)
+    const {connectSession} = useContext(UserContext)
 
     const validationUser = (e) => {
         setValidateUser(validation(e))
@@ -25,12 +27,15 @@ const Register = () => {
         setValidateRetypePass(text === pass)
     }
 
-    const validateForm = () => {
+    const validateForm = async() => {
         if(validateUser && validatePass && validateRetypePass){
-            if(username.length > 0 && pass.length > 0)
-                if(validation(username) && validation(pass))
-                    registerUser(username,pass)
-                    console.log(`${username} & ${pass}`)
+            if(username.length > 0 && pass.length > 0){
+                if(validation(username) && validation(pass)){
+                    const response = await controllerUser(username,pass,'login')
+                    connectSession(response.username)
+                    localStorage.setItem("key", response.token)
+                }
+            }
         }
     }
 

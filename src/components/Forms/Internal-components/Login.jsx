@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../../ProviderLogin/ProviderLogin";
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import { validation } from "./tools";
+import { controllerUser, validation } from "./tools";
 
 const Login = () => {
     const [viewPass, setViewPass] = useState(false)
@@ -9,6 +10,7 @@ const Login = () => {
     const [pass, setPass] = useState('');
     const [validateUser, setValidateUser] = useState(false)
     const [validatePass, setValidatePass] = useState(false)
+    const {connectSession} = useContext(UserContext)
 
 
     const validationUser = (e) => {
@@ -21,11 +23,15 @@ const Login = () => {
         setPass(e)
     }
 
-    const validateForm = () => {
-        if(validateUser && validatePass){
-            if(username.length > 0 && pass.length > 0)
-                if(validation(username) && validation(pass))
-                    console.log(`${username} & ${pass}`)
+    const validateForm = async () => {
+        if (validateUser && validatePass) {
+            if (username.length > 0 && pass.length > 0) {
+                if (validation(username) && validation(pass)) {
+                    const response = await controllerUser(username, pass, 'login')
+                    connectSession(response.username)
+                    localStorage.setItem("key", response.token)
+                }
+            }
         }
     }
 
@@ -43,15 +49,15 @@ const Login = () => {
                     </> :
                     <>
                         <div className='form--slot'>
-                            <input type='text' placeholder='Write your password' className={validatePass ? 'form--input form--pass' : 'form--input-invalidate form--pass-invalidate'} onChange={e => validationPass(e.target.value)}/>
+                            <input type='text' placeholder='Write your password' className={validatePass ? 'form--input form--pass' : 'form--input-invalidate form--pass-invalidate'} onChange={e => validationPass(e.target.value)} />
                             <button className='form--button-view-inverse' onClick={e => setViewPass(!viewPass)}><VisibilityOffIcon className='form--icon' /></button>
                         </div>
                     </>
                 }
             </div>
             {validateUser && validatePass ?
-            <button onClick={e => validateForm()} className='form--submit' >Login</button> :
-            <button disabled className='form--submit form--submit-disabled'>Login</button>}
+                <button onClick={e => validateForm()} className='form--submit' >Login</button> :
+                <button disabled className='form--submit form--submit-disabled'>Login</button>}
         </div>
     )
 }
