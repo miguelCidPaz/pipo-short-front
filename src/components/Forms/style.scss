@@ -28,11 +28,11 @@
     width: 100%;
 }
 
-.form--input{
+.form--input, .form--input-invalidate{
     outline: none;
     background-color: #ffffff13;
     border: none;
-    border-bottom: 1px solid $text-color;
+    border-bottom: 3px solid $text-color;
     border-radius: 15px 15px 0px 0px;
     color: $text-color;
     font-weight: 500;
@@ -51,7 +51,11 @@
     }
 }
 
-.form--pass{
+.form--input-invalidate{
+    border-bottom: 3px solid red;
+}
+
+.form--pass, .form--pass-invalidate{
     width: 80%;
 }
 
@@ -73,7 +77,7 @@
     box-shadow: 3px 3px 10px inset $light-principal-color;
 }
 
-.form--submit{
+.form--submit, .form--submit-disabled{
     cursor: pointer;
     outline: none;
     border: none;
@@ -94,4 +98,12 @@
     @media (max-width:320px) {
         font-size: 20px;
     }
+}
+
+.form--submit-disabled{
+    cursor: auto;
+    opacity: 0.8;
+    background-color: bisque;
+    box-shadow: 0 10px 10px inset grey;
+    color: grey;
 }
