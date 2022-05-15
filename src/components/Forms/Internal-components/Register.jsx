@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {validation} from './tools'
+import {registerUser, validation} from './tools'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
@@ -29,6 +29,7 @@ const Register = () => {
         if(validateUser && validatePass && validateRetypePass){
             if(username.length > 0 && pass.length > 0)
                 if(validation(username) && validation(pass))
+                    registerUser(username,pass)
                     console.log(`${username} & ${pass}`)
         }
     }
