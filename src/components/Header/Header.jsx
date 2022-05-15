@@ -1,11 +1,11 @@
 import { title_app, links_nav } from '../../assets/resources';
 import pipoClown from '../../assets/images/pepeclownPensando.png'
 import { Link } from 'react-router-dom';
-import { useContext,  } from 'react';
+import { useContext, } from 'react';
 import { UserContext } from '../ProviderLogin/ProviderLogin'
 
 const Header = (props) => {
-    const {username} = useContext(UserContext)
+    const { username } = useContext(UserContext)
 
     console.log(username)
 
@@ -21,11 +21,10 @@ const Header = (props) => {
                     {links_nav.map((element, key) => {
                         return (
                             <li key={key} className="header--nav-link">
-                                {element === "register" ? 
-                                username !== undefined ? <p className='header--link'>{username}</p> :
-                                    <Link className='header--link' to={"/forms/register"}>{element}</Link> :
+                                {element === "register" ?
+                                    username !== undefined ? <p className='header--link'>{username}</p> :
+                                        <Link className='header--link' to={"/forms/register"}>{element}</Link> :
                                     <Link className='header--link' to={"/"}>{element}</Link>}
-
                             </li>
                         )
                     })}
