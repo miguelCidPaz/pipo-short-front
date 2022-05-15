@@ -100,6 +100,32 @@
     }
 }
 
+.form--redirect{
+    position: relative;
+    width: 50%;
+    height: 60px;
+    top: -50px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.form--redirect-text, .form--redirect-link{
+    font-size: 20px;
+    color: $text-color;
+    text-decoration: none;
+}
+
+.form--redirect-link{
+    color: $text-color;
+    font-weight: bolder;
+
+    &:hover{
+        text-shadow: 0 0 10px $text-color-deg;
+    }
+}
+
 .form--submit-disabled{
     cursor: auto;
     opacity: 0.8;
