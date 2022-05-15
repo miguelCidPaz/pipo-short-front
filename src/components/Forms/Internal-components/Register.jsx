@@ -1,8 +1,7 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import {validation} from './tools'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import { useIsFocusVisible } from "@mui/material";
 
 const Register = () => {
     const [viewPass, setViewPass] = useState(false)
@@ -11,16 +10,16 @@ const Register = () => {
     const [validateUser, setValidateUser] = useState(false)
     const [validatePass, setValidatePass] = useState(false)
     const [validateRetypePass, setValidateRetypePass] = useState(false)
-    const inputUser = useRef();
-    const inputPass = useRef();
 
-    useEffect(() => {
-        setValidateUser(validation(username))
-    },[username])
+    const validationUser = (e) => {
+        setValidateUser(validation(e))
+        setUsername(e)
+    }
 
-    useEffect(() => {
-        setValidatePass(validation(pass))
-    },[pass])
+    const validationPass = (e) => {
+        setValidatePass(validation(e))
+        setPass(e)
+    }
 
     const verifyPass = (text) => {
         setValidateRetypePass(text === pass)
@@ -36,22 +35,22 @@ const Register = () => {
 
     return (
         <div className="form--section">
-            <input type="text" ref={inputUser} className={validateUser ? 'form--input' : 'form--input-invalidate'} placeholder='Write your name' onChange={e => setUsername(e.target.value)} />
+            <input type="text" className={validateUser ? 'form--input' : 'form--input-invalidate'} placeholder='Write your name' onChange={e => validationUser(e.target.value)} />
             <div className='form--group'>
                 {!viewPass ?
                     <>
                         <div className='form--slot'>
-                            <input type="password" placeholder='Write your password' ref={inputPass} className={validatePass ? 'form--input form--pass' : 'form--input-invalidate form--pass-invalidate'} onChange={e => setPass(e.target.value)} />
+                            <input type="password" placeholder='Write your password' className={validatePass ? 'form--input form--pass' : 'form--input-invalidate form--pass-invalidate'} onChange={e => validationPass(e.target.value)} />
                             <button className='form--button-view' onClick={e => setViewPass(!viewPass)}><VisibilityIcon className='form--icon' /></button>
                         </div>
                         <input type="password" onChange={e => verifyPass(e.target.value)} className={validateRetypePass ? 'form--input' : 'form--input-invalidate'} placeholder='Retype your password' />
                     </> :
                     <>
                         <div className='form--slot'>
-                            <input type='text' placeholder='Write your password' ref={inputPass} className={validatePass ? 'form--input form--pass' : 'form--input-invalidate form--pass-invalidate'} onChange={e => setPass(e.target.value)}/>
+                            <input type='text' placeholder='Write your password' className={validatePass ? 'form--input form--pass' : 'form--input-invalidate form--pass-invalidate'} onChange={e => setPass(e.target.value)}/>
                             <button className='form--button-view-inverse' onClick={e => setViewPass(!viewPass)}><VisibilityOffIcon className='form--icon' /></button>
                         </div>
-                        <input type="text" onChange={e => verifyPass(e.target.value)} className={validateRetypePass ? 'form--input' : 'form--input-invalidate'} placeholder='Retype your password' />
+                        <input type="text" onChange={e => validationPass(e.target.value)} className={validateRetypePass ? 'form--input' : 'form--input-invalidate'} placeholder='Retype your password' />
 
                     </>
                 }
