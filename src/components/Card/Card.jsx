@@ -45,7 +45,7 @@ const Card = (props) => {
                 :
                 <section className="card--main ">
                     <header className="card--header">{code}</header>
-                    <a className="card--data card--link" href={`localhost:3001/${code}`} target="_blank" >{url}</a>
+                    <a className="card--data card--link" href={`www.localhost:3001/${code}`} target="_blank" rel="noopener noreferrer" >{url}</a>
                     <p className="card--data">{totalclicks} Clicks</p>
                     <footer className="card--footer">
                         <button className="card--button-details" onClick={e => callToApi()}>{`->`}</button>

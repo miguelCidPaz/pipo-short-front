@@ -1,4 +1,4 @@
-import { callInfo, callDetail } from "./tools"
+import { callInfo } from "./tools"
 import { useEffect, useState } from 'react'
 import Card from '../Card/Card'
 
@@ -19,16 +19,10 @@ const UserPanel = () => {
         setAllUrls(response)
     }
 
-    const detail = async (code) => {
-        const response = await callDetail(code)
-        console.log(response)
-    }
-
     return (
         <section className="userpanel--main">
 
             {allUrls.length > 0 ? allUrls.map((el, i) => {
-                { console.log(el) }
                 return <Card element={el}/>
             })
                 : null}
