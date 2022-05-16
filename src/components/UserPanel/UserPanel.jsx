@@ -1,5 +1,6 @@
 import { callInfo, callDetail } from "./tools"
 import { useEffect, useState } from 'react'
+import Card from '../Card/Card'
 
 const UserPanel = () => {
     const [allUrls, setAllUrls] = useState([])
@@ -25,11 +26,12 @@ const UserPanel = () => {
 
     return (
         <section className="userpanel--main">
-            
-            {allUrls.length > 0 ? allUrls.map((el,i) => {
-             return <button className="userpanel--button" key={i} onClick={e => detail(el.code)}>{el.code + ' - ' +el.url}</button>   
+
+            {allUrls.length > 0 ? allUrls.map((el, i) => {
+                { console.log(el) }
+                return <Card element={el}/>
             })
-        :null}
+                : null}
 
         </section>
     )

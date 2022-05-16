@@ -12,8 +12,7 @@ const RedirectPage = () => {
         const response = await axios.post(`${process.env.REACT_APP_API_URL}url/geturl`,
             { data: { code: navigate.code, language: navigator.language, date: date, platform: navigator.userAgentData.platform, lastUrl: document.referrer || '' } })
         const url = response.data
-        window.location.href = url
-
+        url.startsWith('http' || 'https') ? window.location.href = url : window.location.href = `https://www.${url}`
     }
 
     useEffect(() => {

@@ -1,0 +1,76 @@
+.card--main, .card-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.361);
+    width: 80%;
+    min-height: 150px;
+    box-shadow: 0 0 20px $dark-secondary-color;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.card--header{
+    background-color: $principal-color;
+    height: 30px;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    color: $text-color;
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: 0 3px 10px inset $light-principal-color;
+}
+
+.card--data{
+    font-weight: bolder;
+    text-align: center;
+}
+
+.card--link{
+    
+}
+
+.card--footer{
+    background-color: $principal-color;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 -5px 10px inset $light-principal-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    height: 30px;
+}
+
+.card--button-details{
+    border: none;
+    outline: none;
+    width: 50px;
+    border-radius: 0px 0px 5px 0px;
+    background-color: red;
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.card--detail-body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.card--detail-section{
+    background-color: $principal-color;
+    color: $text-color;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px inset $light-principal-color, 0 0 5px $dark-principal-color;
+}
+
+.card--detail-name{
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.card--detail-number{
+    font-size: 18px;
+}
