@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import {Link} from 'react-router-dom'
 import { callDetail } from '../UserPanel/tools'
 
 const Card = (props) => {
@@ -15,28 +16,37 @@ const Card = (props) => {
         setViewDetail(!viewDetail)
     }
 
+    const pairToObject = (arr) => {
+        const result = []
+        for (let i = 0; i < arr.length; i += 2) {
+            result.push({ name: arr[i], number: arr[i + 1] })
+        }
+        return result
+    }
+
     return (
         <>
             {viewDetail ?
                 <section className='card--main'>
                     <header className='card--detail-header card--header'>Clicks Details {code}</header>
                     <div className='card--detail-body'>
-                        <section className='card--detail-section'>
-                            {detail.platforms.length > 0 ? detail.platforms.map((e, i) => {
-                                return i % 2 === 0 ?
-                                    <p key={i} className='card--detail-name'>{e}</p>
-                                    : <p key={i} className='card--detail-number'>{e}</p>
-                            })
-                                : null}
-                        </section>
-                        <section className='card--detail-section'>
-                            {detail.languages.length > 0 ? detail.languages.map((e, i) => {
-                                return i % 2 === 0 ?
-                                    <p key={i} className='card--detail-name'>{e}</p>
-                                    : <p key={i} className='card--detail-number'>{e}</p>
-                            })
-                                : null}
-                        </section>
+
+                        {detail.platforms.length > 0 ? pairToObject(detail.platforms).map((e, i) => {
+                            return <section className='card--detail-section'>
+                                <p key={i} className='card--detail-name'>{e.name}</p>
+                                <p key={i} className='card--detail-number'>{e.number}</p>
+                            </section>
+                        }) : null
+                        }
+
+                        {detail.languages.length > 0 ? pairToObject(detail.languages).map((e, i) => {
+                            return <section className='card--detail-section'>
+                                <p key={i} className='card--detail-name'>{e.name}</p>
+                                <p key={i} className='card--detail-number'>{e.number}</p>
+                            </section>
+                        }) : null
+                        }
+
                     </div>
                     <footer className="card--footer">
                         <button className='card--button-details' onClick={e => setViewDetail(!viewDetail)}>Back</button>
@@ -45,7 +55,7 @@ const Card = (props) => {
                 :
                 <section className="card--main ">
                     <header className="card--header">{code}</header>
-                    <a className="card--data card--link" href={`www.localhost:3001/${code}`} target="_blank" rel="noopener noreferrer" >{url}</a>
+                    <Link className="card--data card--link" to={`/${code}`} >{url}</Link>
                     <p className="card--data">{totalclicks} Clicks</p>
                     <footer className="card--footer">
                         <button className="card--button-details" onClick={e => callToApi()}>{`->`}</button>
