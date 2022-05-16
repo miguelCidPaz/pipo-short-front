@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { UserContext } from "../../ProviderLogin/ProviderLogin";
+import { useNavigate } from "react-router-dom";
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { controllerUser, validation } from "./tools";
@@ -11,7 +12,7 @@ const Login = () => {
     const [validateUser, setValidateUser] = useState(false)
     const [validatePass, setValidatePass] = useState(false)
     const {connectSession} = useContext(UserContext)
-
+    const navigate = useNavigate();
 
     const validationUser = (e) => {
         setValidateUser(validation(e))
@@ -30,6 +31,7 @@ const Login = () => {
                     const response = await controllerUser(username, pass, 'login')
                     connectSession(response.username)
                     localStorage.setItem("key", response.token)
+                    if(response.username) navigate('/')
                 }
             }
         }

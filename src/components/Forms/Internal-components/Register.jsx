@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { UserContext } from "../../ProviderLogin/ProviderLogin";
+import { useNavigate } from "react-router-dom"
 import {controllerUser, validation} from './tools'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -12,6 +13,7 @@ const Register = () => {
     const [validatePass, setValidatePass] = useState(false)
     const [validateRetypePass, setValidateRetypePass] = useState(false)
     const {connectSession} = useContext(UserContext)
+    const navigate = useNavigate();
 
     const validationUser = (e) => {
         setValidateUser(validation(e))
@@ -31,9 +33,10 @@ const Register = () => {
         if(validateUser && validatePass && validateRetypePass){
             if(username.length > 0 && pass.length > 0){
                 if(validation(username) && validation(pass)){
-                    const response = await controllerUser(username,pass,'login')
+                    const response = await controllerUser(username,pass,'register')
                     connectSession(response.username)
                     localStorage.setItem("key", response.token)
+                    if(response.username) navigate('/')
                 }
             }
         }
