@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { callDetail } from '../UserPanel/tools'
 
 const Card = (props) => {
@@ -30,8 +30,7 @@ const Card = (props) => {
                 <section className='card--main'>
                     <header className='card--detail-header card--header'>Clicks Details {code}</header>
                     <div className='card--detail-body'>
-
-                        {detail.platforms.length > 0 ? pairToObject(detail.platforms).map((e, i) => {
+                        {detail.length > 0 ? <>{detail.platforms.length > 0 ? pairToObject(detail.platforms).map((e, i) => {
                             return <section key={i} className='card--detail-section'>
                                 <p className='card--detail-name'>{e.name}</p>
                                 <p className='card--detail-number'>{e.number}</p>
@@ -39,13 +38,15 @@ const Card = (props) => {
                         }) : null
                         }
 
-                        {detail.languages.length > 0 ? pairToObject(detail.languages).map((e, i) => {
-                            return <section key={`son${i}`} className='card--detail-section'>
-                                <p className='card--detail-name'>{e.name}</p>
-                                <p className='card--detail-number'>{e.number}</p>
-                            </section>
-                        }) : null
-                        }
+                            {detail.languages.length > 0 ? pairToObject(detail.languages).map((e, i) => {
+                                return <section key={`son${i}`} className='card--detail-section'>
+                                    <p className='card--detail-name'>{e.name}</p>
+                                    <p className='card--detail-number'>{e.number}</p>
+                                </section>
+                            }) : null}
+                        </>
+                            : null}
+
 
                     </div>
                     <footer className="card--footer">
