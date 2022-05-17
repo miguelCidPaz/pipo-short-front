@@ -32,17 +32,17 @@ const Card = (props) => {
                     <div className='card--detail-body'>
 
                         {detail.platforms.length > 0 ? pairToObject(detail.platforms).map((e, i) => {
-                            return <section className='card--detail-section'>
-                                <p key={i} className='card--detail-name'>{e.name}</p>
-                                <p key={i} className='card--detail-number'>{e.number}</p>
+                            return <section key={i} className='card--detail-section'>
+                                <p className='card--detail-name'>{e.name}</p>
+                                <p className='card--detail-number'>{e.number}</p>
                             </section>
                         }) : null
                         }
 
                         {detail.languages.length > 0 ? pairToObject(detail.languages).map((e, i) => {
-                            return <section className='card--detail-section'>
-                                <p key={i} className='card--detail-name'>{e.name}</p>
-                                <p key={i} className='card--detail-number'>{e.number}</p>
+                            return <section key={`son${i}`} className='card--detail-section'>
+                                <p className='card--detail-name'>{e.name}</p>
+                                <p className='card--detail-number'>{e.number}</p>
                             </section>
                         }) : null
                         }

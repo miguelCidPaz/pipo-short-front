@@ -23,7 +23,7 @@ const UserPanel = () => {
         <section className="userpanel--main">
 
             {allUrls.length > 0 ? allUrls.map((el, i) => {
-                return <Card element={el}/>
+                return <Card element={el} key={i}/>
             })
                 : null}
 
