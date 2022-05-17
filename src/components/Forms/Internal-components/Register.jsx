@@ -42,24 +42,28 @@ const Register = () => {
         }
     }
 
+    const keyDown = (e) => {
+        if(e.key) validateForm()
+    }
+
     return (
         <div className="form--section">
-            <input type="text" className={validateUser ? 'form--input' : 'form--input-invalidate'} placeholder='Write your name' onChange={e => validationUser(e.target.value)} />
+            <input type="text" onKeyDown={keyDown} className={validateUser ? 'form--input' : 'form--input-invalidate'} placeholder='Write your name' onChange={e => validationUser(e.target.value)} />
             <div className='form--group'>
                 {!viewPass ?
                     <>
                         <div className='form--slot'>
-                            <input type="password" placeholder='Write your password' className={validatePass ? 'form--input form--pass' : 'form--input-invalidate form--pass-invalidate'} onChange={e => validationPass(e.target.value)} />
+                            <input type="password" onKeyDown={keyDown} placeholder='Write your password' className={validatePass ? 'form--input form--pass' : 'form--input-invalidate form--pass-invalidate'} onChange={e => validationPass(e.target.value)} />
                             <button className='form--button-view' onClick={e => setViewPass(!viewPass)}><VisibilityIcon className='form--icon' /></button>
                         </div>
-                        <input type="password" onChange={e => verifyPass(e.target.value)} className={validateRetypePass ? 'form--input' : 'form--input-invalidate'} placeholder='Retype your password' />
+                        <input type="password" onKeyDown={keyDown} onChange={e => verifyPass(e.target.value)} className={validateRetypePass ? 'form--input' : 'form--input-invalidate'} placeholder='Retype your password' />
                     </> :
                     <>
                         <div className='form--slot'>
-                            <input type='text' placeholder='Write your password' className={validatePass ? 'form--input form--pass' : 'form--input-invalidate form--pass-invalidate'} onChange={e => setPass(e.target.value)}/>
+                            <input type='text' onKeyDown={keyDown} placeholder='Write your password' className={validatePass ? 'form--input form--pass' : 'form--input-invalidate form--pass-invalidate'} onChange={e => setPass(e.target.value)}/>
                             <button className='form--button-view-inverse' onClick={e => setViewPass(!viewPass)}><VisibilityOffIcon className='form--icon' /></button>
                         </div>
-                        <input type="text" onChange={e => validationPass(e.target.value)} className={validateRetypePass ? 'form--input' : 'form--input-invalidate'} placeholder='Retype your password' />
+                        <input type="text" onKeyDown={keyDown} onChange={e => validationPass(e.target.value)} className={validateRetypePass ? 'form--input' : 'form--input-invalidate'} placeholder='Retype your password' />
 
                     </>
                 }
