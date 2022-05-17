@@ -8,11 +8,11 @@ const InputLink = () => {
     const textInput = useRef();
 
     const submit = (e) => {
-        if (url.length() > 5) {
-            if (e.key === 'Enter')
+        if (e.key === 'Enter') {
+            if (url.length() > 5) {
                 encryptUrl(url)
+            }
         }
-
     }
 
     const encryptUrl = async (myUrl) => {
